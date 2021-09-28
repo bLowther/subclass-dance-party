@@ -24,6 +24,9 @@ var MakeDancer = function(top, left, timeBetweenSteps) {
     };;
     this.$node.css(styleSettings);
   }
+  MakeDancer.prototype.lineUp = function () {
+    this.$node.css({'left' : '50'})
+  };
 
 
 

@@ -1,5 +1,6 @@
 var ShapeChangeDancer = function(top, left, timeBetweenSteps) {
   MakeDancer.call(this, top, left, timeBetweenSteps);
+  this.$node = $('<span class="dancer"><img src="../images/Super_Zangief.png"></span>');
   this.startingCSS();
   this.step()
 }
@@ -9,7 +10,7 @@ ShapeChangeDancer.prototype.constructor = ShapeChangeDancer;
 
 ShapeChangeDancer.prototype.startingCSS = function () {
   var style = {
-    'border-color': 'blue'
+    'border': 'none'
   }
   this.$node.css(style);
 }

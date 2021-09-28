@@ -25,15 +25,12 @@ MakeColorDancer.prototype.startingCSS = function () {
 // this.$node .addClass and .removeClass, create different classes and cycle through with the color index
 
 MakeColorDancer.prototype.step = function() {
-  var colorIndex = this.colorIndex
-  console.log(this.color)
-  console.log(colorIndex)
-
   if (this.colorIndex === this.color.length - 1) {
     this.colorIndex = 0;
   } else {
     this.colorIndex++;
   }
+  var color = this.color[this.colorIndex]
   if (this.sizeChange) {
     this.$node.animate({'borderWidth' : '20px' }, this.timeBetweenSteps);
     this.sizeChange = false;
@@ -41,7 +38,8 @@ MakeColorDancer.prototype.step = function() {
     this.$node.animate({'borderWidth' : '10px' }, this.timeBetweenSteps);
     this.sizeChange = true;
   }
-  this.$node.animate({'border-color' : this.color[colorIndex] }, this.timeBetweenSteps);
+
+  this.$node.animate({'border-color': color }, this.timeBetweenSteps);
   MakeDancer.prototype.step.call(this);
 };
 
