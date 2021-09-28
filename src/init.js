@@ -33,7 +33,7 @@ $(document).ready(function() {
 
   $('.lineUp').on('click', function(event) {
     for (var i = 0; i < window.dancers.length; i++) {
-      console.log(window.dancers[i])
+      // console.log(window.dancers[i])
       window.dancers[i].lineUp();
     }
   })
