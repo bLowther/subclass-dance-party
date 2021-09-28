@@ -1,30 +1,38 @@
 var MakeColorDancer = function(top, left, timeBetweenSteps) {
   MakeDancer.call(this, top, left, timeBetweenSteps);
   this.color = ['yellow', 'blue', 'green'];
-  this.colorIndex = 2;
+  this.colorIndex = 0;
   this.sizeChange = false;
   this.startingCSS();
+  this.step();
 }
-// var style = {
-//   'border-color': 'green'
-// }
-// this.$node.css(style);
 
 MakeColorDancer.prototype = Object.create(MakeDancer.prototype);
 MakeColorDancer.prototype.constructor = MakeColorDancer;
 
-// MakeColorDancer.prototype.startingCSS = function () {
-//   var style = {
-//     'border-color': 'green'
-//   }
-//   this.$node.css(style);
+MakeColorDancer.prototype.startingCSS = function () {
+  var style = {
+    'border-color': 'green'
+  }
+  this.$node.css(style);
+}
+
+// MakeColorDancer.prototype.colorIndex = function(i) {
+//   var arr = [0, 1, 2]
+//   return arr[i];
 // }
 
+// this.$node .addClass and .removeClass, create different classes and cycle through with the color index
+
 MakeColorDancer.prototype.step = function() {
+  var colorIndex = this.colorIndex
+  console.log(this.color)
+  console.log(colorIndex)
+
   if (this.colorIndex === this.color.length - 1) {
     this.colorIndex = 0;
   } else {
-    colorIndex++;
+    this.colorIndex++;
   }
   if (this.sizeChange) {
     this.$node.animate({'borderWidth' : '20px' }, this.timeBetweenSteps);
@@ -33,7 +41,7 @@ MakeColorDancer.prototype.step = function() {
     this.$node.animate({'borderWidth' : '10px' }, this.timeBetweenSteps);
     this.sizeChange = true;
   }
-  this.$node.animate({'borderColor' : this.color[this.colorIndex] }, this.timeBetweenSteps);
+  this.$node.animate({'border-color' : this.color[colorIndex] }, this.timeBetweenSteps);
   MakeDancer.prototype.step.call(this);
 };
 
